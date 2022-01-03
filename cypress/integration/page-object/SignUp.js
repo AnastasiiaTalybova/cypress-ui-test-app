@@ -12,6 +12,8 @@ const error = {
   username: 'Username is required',
   password: 'Enter your password',
   confirmPassword: 'Confirm your password',
+  password2: 'Password must contain at least 4 characters',
+  confirmPassword2: 'Password does not match',
 }
 
 const user = {
@@ -65,6 +67,14 @@ export class SignUp {
     cy.get('p.MuiFormHelperText-root.MuiFormHelperText-contained.Mui-error.Mui-required')
       .should('contain', error.confirmPassword)
       .should('be.visible');
+    cy.get('[name="password"]').type('1');
+    cy.get('[name="confirmPassword"]').type('2');
+    cy.get('p.MuiFormHelperText-root.MuiFormHelperText-contained.Mui-error.Mui-required')
+      .should('contain', error.password2)
+      .should('be.visible');
+    cy.get('p.MuiFormHelperText-root.MuiFormHelperText-contained.Mui-error.Mui-required')
+      .should('contain', error.confirmPassword2)
+      .should('be.visible');
   }
 
   checkcolor() {
@@ -87,6 +97,14 @@ export class SignUp {
       .should('contain', error.username)
       .should('have.css', 'color', 'rgb(244, 67, 54)');
     cy.get('p.MuiFormHelperText-root.MuiFormHelperText-contained.Mui-error.Mui-required')
+      .should('contain', error.password2)
+      .should('have.css', 'color', 'rgb(244, 67, 54)');
+    cy.get('p.MuiFormHelperText-root.MuiFormHelperText-contained.Mui-error.Mui-required')
+      .should('contain', error.confirmPassword2)
+      .should('have.css', 'color', 'rgb(244, 67, 54)');
+      cy.get('[name="password"]').type('{selectall}').type('{backspace}');
+      cy.get('[name="confirmPassword"]').type('{selectall}').type('{backspace}');
+      cy.get('p.MuiFormHelperText-root.MuiFormHelperText-contained.Mui-error.Mui-required')
       .should('contain', error.password)
       .should('have.css', 'color', 'rgb(244, 67, 54)');
     cy.get('p.MuiFormHelperText-root.MuiFormHelperText-contained.Mui-error.Mui-required')
