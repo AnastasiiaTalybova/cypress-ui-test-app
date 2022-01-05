@@ -33,11 +33,7 @@ describe('Sign Up', () => {
   })
 
   it('Contains error message on "Sing Up" page', () => {
-    signUp.fieldFirstName().click();
-    signUp.fieldLastName().click();
-    signUp.fieldUsername().click();
-    signUp.fieldPassword().click();
-    signUp.fieldConfirmPassword().click();
+    cy.clickAllSingUpFields();
     signUp.fullLogo().click();
     signUp.errorMessage().eq(0)
       .should('contain', data.error.firstName)
@@ -248,13 +244,7 @@ describe('Registration and Login for new User', () => {
   })
 
   it('User can register like new User', () => {
-    signUp.visit();
-    signUp.fieldFirstName().type('{selectall}').type(testData.newUser.firstName);
-    signUp.fieldLastName().type('{selectall}').type(testData.newUser.lastName);
-    signUp.fieldUsername().type('{selectall}').type(testData.newUser.username);
-    signUp.fieldPassword().type('{selectall}').type(testData.newUser.password);
-    signUp.fieldConfirmPassword().type('{selectall}').type(testData.newUser.confirmPassword);
-    signUp.button().should('contain', data.button.signUp).should('not.be.disabled').click();
+    cy.registration();
     cy.url().should('include', '/signin');
   })
 
@@ -271,20 +261,13 @@ describe('Registration and Login for new User', () => {
   })
 
   it('User can login like new User', () => {
-    signIn.visit();
-    signIn.fieldUsername().type('{selectall}').type(testData.newUser.username);
-    signIn.fieldPassword().type('{selectall}').type(testData.newUser.password);
-    signIn.button().should('contain', data.button.signIn).click();
+    cy.login();
     signIn.firstWindow().should('contain', data.windowText.first).should('exist');
   })
 
   it('User can login like new User with checkbox "Remember me"', () => {
     cy.clearCookies();
-    signIn.visit();
-    signIn.fieldUsername().type('{selectall}').type(testData.newUser.username);
-    signIn.fieldPassword().type('{selectall}').type(testData.newUser.password);
-    signIn.checkboxLogin().check().should('be.checked');
-    signIn.button().should('contain', data.button.signIn).click();
+    cy.loginCheckbox();
     signIn.firstWindow().should('contain', data.windowText.first).should('exist');
   })
 })

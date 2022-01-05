@@ -1,0 +1,46 @@
+{
+  "namePage": {
+    "signUp": "Sign Up",
+    "signIn": "Sign in"
+  },
+
+  "button": {
+    "signUp": "Sign Up",
+    "signIn": "Sign In"
+  },
+
+  "link": {
+    "signUp": "Sign Up",
+    "signIn": "Sign In"
+  },
+  
+  "field": {
+    "firstName": "First Name",
+    "lastName": "Last Name",
+    "username": "Username",
+    "password": "Password",
+    "confirmPassword": "Confirm Password"
+  },
+
+  "error": {
+    "firstName": "First Name is required",
+    "lastName": "Last Name is required",
+    "username": "Username is required",
+    "password": "Enter your password",
+    "confirmPassword": "Confirm your password",
+    "shortPassword": "Password must contain at least 4 characters",
+    "differentConfirmPassword": "Password does not match"
+  },
+
+  "color": {
+    "blue":"rgb(63, 81, 181)",
+    "black": "rgba(0, 0, 0, 0.87)",
+    "red": "rgb(244, 67, 54)",
+    "lightGray": "rgba(0, 0, 0, 0.26)",
+    "darkGrey": "rgba(0, 0, 0, 0.54)"
+  },
+
+  "windowText": {
+    "first": "Get Started with Real World App"
+  }
+}
