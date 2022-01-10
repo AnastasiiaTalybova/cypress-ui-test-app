@@ -1,0 +1,15 @@
+{
+  "user": {
+    "id":"3fsQK-3FH",
+    "uuid":"6e65bc23-65f8-4e3c-8bc2-45efc19a80f2",
+    "firstName":"First2",
+    "lastName":"Last2",
+    "username":"2Username2",
+    "password":"$2a$10$Hm0wFSllMPeqX2zMBjyZjuDVdu7f1sdV7aTzyAzDgHTtbmcjTFtDq",
+    "email":"test2@mail.com",
+    "phoneNumber":"123456",
+    "balance":25000,
+    "createdAt":"2022-01-10T15:19:57.998Z",
+    "modifiedAt":"2022-01-10T15:19:57.998Z"
+  }
+}

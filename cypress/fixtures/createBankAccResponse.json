@@ -1,0 +1,14 @@
+{
+  "data": {
+    "createBankAccount": {
+      "id": "wBKwAeO_V",
+      "uuid": "683826ce-fbe7-4695-92bc-85fbc4573ce2",
+      "userId": "ijcelAoMb",
+      "bankName": "Bank1",
+      "accountNumber": "123456789",
+      "routingNumber": "123456789",
+      "isDeleted": false,
+      "createdAt": "1641828030335"
+    }
+  }
+}

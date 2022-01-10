@@ -1,0 +1,13 @@
+{
+  "user": {
+    "id":"H6PzsU67E",
+    "uuid":"d26816a8-8c4f-4dc2-8991-28e986f676e7",
+    "firstName":"FirstName",
+    "lastName":"LastName",
+    "username":"1Username1",
+    "password":"$2a$10$LAGbXmWzT5QVWY.xeomKAu73INpNsuV0nNMmtd00FZgMK2KuWAOYy",
+    "balance":50000,
+    "createdAt":"2022-01-10T15:53:01.961Z",
+    "modifiedAt":"2022-01-10T15:53:01.961Z"
+  }
+}

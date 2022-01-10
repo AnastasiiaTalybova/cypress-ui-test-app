@@ -4,11 +4,13 @@ import {SignUp} from './page-object/SignUp';
 import {SignIn} from './page-object/SignIn';
 import {RandomData} from './page-object/RandomData';
 import TestData from './page-object/TestData';
+import {Site} from './page-object/Site';
 
 const signUp = new SignUp();
 const signIn = new SignIn();
 const data = TestData;
 const testData = RandomData;
+const site = new Site();
 
 describe('Sign Up', () => {
 
@@ -64,7 +66,7 @@ describe('Sign Up', () => {
       .should('be.visible');
   })
 
-  it('Check color for elements with error message on "Sing Up" page', () => {
+  it('Check color for elements and error message on "Sing Up" page', () => {
     signUp.logo1()
       .should('have.css', 'color', data.color.blue);
       signUp.logo2()
@@ -145,7 +147,7 @@ describe('Sign In', () => {
       .should('be.visible');
   })
 
-  it('Check color for elements with error message on "Sing In" page', () => {
+  it('Check color for elements and error message on "Sing In" page', () => {
     signIn.logo1()
       .should('have.css', 'color', data.color.blue);;
     signIn.logo2()
@@ -178,7 +180,6 @@ describe('Sign In', () => {
       .should('not.be.disabled')
       .should('have.css', 'background-color', data.color.blue);
   })
-
 })
 
 describe('Registration and Login for new User', () => {
@@ -286,5 +287,83 @@ describe('Registration and Login for new User', () => {
     signIn.checkboxLogin().check().should('be.checked');
     signIn.button().should('contain', data.button.signIn).click();
     signIn.firstWindow().should('contain', data.windowText.first).should('exist');
+  })
+})
+
+describe('"Create first Bank Account" window', () => {
+
+  it('Contains elements at "Create first Bank Account" window', () => {
+    signIn.firstWindow().should('contain', data.windowText.first).should('exist')
+      .should('have.css', 'color', data.color.black);
+    site.buttonNext().should('contain', data.button.next).click();
+    site.nameWindowBankAcc().should('contain', data.windowText.firstBankAcc).should('be.visible');
+    site.buttonSaveBankAcc().should('contain', data.button.save).should('be.visible');
+  })
+
+  it('Contains fields at "Create first Bank Account" window', () => {
+    site.bankName().should('be.visible');
+    site.routingNumber().should('be.visible');
+    site.accountNumber().should('be.visible');
+  })
+
+  it('Contains error message at "Create first Bank Account" window', () => {
+    site.bankName().click();
+    site.routingNumber().click();
+    site.accountNumber().click();
+    site.nameWindowBankAcc().click();
+    site.errorMessageBankName()
+      .should('contain', data.error.bankName)
+      .should('be.visible');
+    site.errorMessageRoutingNumber()
+      .should('contain', data.error.routingNumber)
+      .should('be.visible');
+    site.errorMessageAccountNumber()
+      .should('contain', data.error.accountNumber)
+      .should('be.visible');
+  })
+
+  it('Check color for elements and error message at "Create first Bank Account" window', () => {
+    site.nameWindowBankAcc()
+      .should('contain', data.windowText.firstBankAcc)
+      .should('have.css', 'color', data.color.black);
+    site.errorMessageBankName()
+      .should('contain', data.error.bankName)
+      .should('have.css', 'color', data.color.red);
+    site.errorMessageRoutingNumber()
+      .should('contain', data.error.routingNumber)
+      .should('have.css', 'color', data.color.red);
+    site.errorMessageAccountNumber()
+      .should('contain', data.error.accountNumber)
+      .should('have.css', 'color', data.color.red);
+    site.buttonSaveBankAcc()
+      .should('contain', data.button.save)
+      .should('be.disabled')
+      .should('have.css', 'color', data.color.lightGray);
+    site.bankName().type('{selectall}').type(testData.newBankAcc.bankName);
+    site.routingNumber().type('{selectall}').type(testData.newBankAcc.routingNumber);
+    site.accountNumber().type('{selectall}').type(testData.newBankAcc.accountNumber);
+    site.buttonSaveBankAcc()
+      .should('contain', data.button.save)
+      .should('not.be.disabled')
+      .should('have.css', 'background-color', data.color.blue);
+  })
+
+  it('Create first Bank Account', () => {
+    site.bankName().type('{selectall}').type(testData.newBankAcc.bankName);
+    site.routingNumber().type('{selectall}').type(testData.newBankAcc.routingNumber);
+    site.accountNumber().type('{selectall}').type(testData.newBankAcc.accountNumber);
+    site.buttonSaveBankAcc().should('contain', data.button.save).click();
+    site.nameWindowBankAcc().should('contain', data.windowText.finished).should('be.visible')
+      .should('have.css', 'color', data.color.black);
+    site.buttonDone().should('contain', data.button.done).click();
+  })
+
+    it('Create new Bank Account', () => {
+      site.buttonMenu().eq(2).should('contain', data.menu.bankAcc).should('be.visible').click();
+      site.buttonCreateBankAcc().should('contain', data.button.createBankAcc).should('be.visible').click({force: true});
+      site.bankName().type('{selectall}').type(testData.newBankAcc.bankName);
+      site.routingNumber().type('{selectall}').type(testData.newBankAcc.routingNumber);
+      site.accountNumber().type('{selectall}').type(testData.newBankAcc.accountNumber);
+      site.buttonSaveBankAcc().should('contain', data.button.save).click();
   })
 })

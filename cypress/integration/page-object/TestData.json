@@ -6,7 +6,11 @@
 
   "button": {
     "signUp": "Sign Up",
-    "signIn": "Sign In"
+    "signIn": "Sign In",
+    "next": "Next",
+    "save": "Save",
+    "done": "Done",
+    "createBankAcc": "Create"
   },
 
   "link": {
@@ -29,7 +33,10 @@
     "password": "Enter your password",
     "confirmPassword": "Confirm your password",
     "shortPassword": "Password must contain at least 4 characters",
-    "differentConfirmPassword": "Password does not match"
+    "differentConfirmPassword": "Password does not match",
+    "bankName": "Enter a bank name",
+    "routingNumber": "Enter a valid bank routing number",
+    "accountNumber": "Enter a valid bank account number"
   },
 
   "color": {
@@ -41,6 +48,29 @@
   },
 
   "windowText": {
-    "first": "Get Started with Real World App"
+    "first": "Get Started with Real World App",
+    "firstBankAcc": "Create Bank Account",
+    "finished": "Finished"
+  },
+
+  "fieldBankAcc": {
+    "bankName": "Bank Name",
+    "routingNumber": "Routing Number",
+    "accountNumber": "Account Number"
+  },
+
+  "menu": {
+    "home": "Home",
+    "myAcc": "My Account",
+    "bankAcc": "Bank Accounts",
+    "notifications": "Notifications",
+    "logout": "Logout"
+  },
+
+  "myAcc": {
+    "firstName": "First Name",
+    "lastName": "Last Name",
+    "email": "email",
+    "phoneNumber": "Phone Number"
   }
 }

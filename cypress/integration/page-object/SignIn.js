@@ -14,6 +14,7 @@ export class SignIn {
   logo2() {
     return cy.get('[fill-rule="evenodd"]').find('path:last-child')
   }
+  
   namePage() {
     return cy.get('h1.MuiTypography-root.MuiTypography-h5')
   }

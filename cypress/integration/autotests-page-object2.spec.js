@@ -60,7 +60,7 @@ describe('Sign Up', () => {
       .should('be.visible');
   })
 
-  it('Check color for elements with error message on "Sing Up" page', () => {
+  it('Check color for elements and error message on "Sing Up" page', () => {
     signUp.logo1()
       .should('have.css', 'color', data.color.blue);
       signUp.logo2()
@@ -141,7 +141,7 @@ describe('Sign In', () => {
       .should('be.visible');
   })
 
-  it('Check color for elements with error message on "Sing In" page', () => {
+  it('Check color for elements and error message on "Sing In" page', () => {
     signIn.logo1()
       .should('have.css', 'color', data.color.blue);;
     signIn.logo2()
@@ -167,8 +167,8 @@ describe('Sign In', () => {
       .should('contain', data.button.signIn)
       .should('be.disabled')
       .should('have.css', 'color', data.color.lightGray);
-    signIn.fieldUsername().type('{selectall}').type(testData.newUser.username);
-    signIn.fieldPassword().type('{selectall}').type(testData.newUser.password);
+    signIn.fieldUsername().type('{selectall}').type(testData.newBankAcc.username);
+    signIn.fieldPassword().type('{selectall}').type(testData.newBankAcc.password);
     signIn.button()
       .should('contain', data.button.signIn)
       .should('not.be.disabled')
